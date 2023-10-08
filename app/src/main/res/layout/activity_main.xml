@@ -8,12 +8,11 @@
         <import type="android.view.View" />
 
         <variable
-            name="myActivity"
-            type="com.example.databinding_sample.MainActivity" />
-
-        <variable
             name="user"
             type="com.example.databinding_sample.User" />
+        <variable
+            name="presenter"
+            type="com.example.databinding_sample.Presenter" />
     </data>
 
     <LinearLayout
@@ -49,13 +48,15 @@
             android:layout_height="100dp"
             android:contentDescription="testImage"
             android:src="@mipmap/ic_launcher_round"
-            android:visibility="@{(user.age > 20 || myActivity.isClicked)? View.VISIBLE : View.GONE}" />
+            android:visibility="@{(user.age > 20)? View.VISIBLE : View.GONE}" />
 
         <Button
             android:id="@+id/btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="그림보이기" />
+            android:text="그림보이기"
+            android:onClick="@{(view) -> presenter.onToastClick(view, user)}"
+            />
 
     </LinearLayout>
 </layout>
