@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="androidx.databinding.ObservableList"/>
-        <variable name="user" type="ObservableList&lt;Object&gt;"/>
+
+        <import type="androidx.databinding.ObservableList" />
+
+        <variable
+            name="user"
+            type="ObservableList&lt;Object&gt;" />
     </data>
 
     <LinearLayout
@@ -34,6 +38,13 @@
             android:layout_height="wrap_content"
             android:text="@{String.valueOf((Integer)user[2])}"
             tools:text="26 " />
+
+        <ImageView
+            android:id="@+id/iv"
+            app:imageUrl="@{user[3]}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="test_image" />
 
 
     </LinearLayout>
