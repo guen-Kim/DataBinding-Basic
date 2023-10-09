@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="user"
-            type="com.example.databinding_sample.User" />
-        <variable
-            name="presenter"
-            type="com.example.databinding_sample.Presenter" />
+        <import type="androidx.databinding.ObservableMap"/>
+        <variable name="user" type="ObservableMap&lt;String,Object&gt;"/>
     </data>
 
     <LinearLayout
@@ -33,30 +26,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.lastName}"
+            android:text="@{user[`lastName`]}"
             tools:text="Guen " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(user.age)}"
+            android:text="@{String.valueOf((Integer)user.age)}"
             tools:text="26 " />
 
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="testImage"
-            android:src="@mipmap/ic_launcher_round"
-            android:visibility="@{(user.age > 20)? View.VISIBLE : View.GONE}" />
-
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="그림보이기"
-            android:onClick="@{(view) -> presenter.onToastClick(view, user)}"
-            />
 
     </LinearLayout>
 </layout>
