@@ -3,6 +3,7 @@ package com.example.databinding_sample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableArrayMap
 import com.example.databinding_sample.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -16,20 +17,20 @@ class MainActivity : AppCompatActivity() {
         val binding: ActivityMainBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val userMap= ObservableArrayMap<String, Any>().apply {
-            put("firstName", "kim")
-            put("lastName", "guen")
-            put("age", 30)
+        val userList= ObservableArrayList<Any>().apply {
+            add("kim")
+            add("guen")
+            add(30)
         }
-        binding.user = userMap
+        binding.user = userList
 
         // Update UI
         CoroutineScope(Main).launch {
             delay(5000)
-            with(userMap) {
-                put("firstName", "pack")
-                put("lastName", "guen")
-                put("age", 15)
+            with(userList) {
+                add("pack")
+                add("guen")
+                add(15)
             }
         }
 

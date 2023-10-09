@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="androidx.databinding.ObservableMap"/>
-        <variable name="user" type="ObservableMap&lt;String,Object&gt;"/>
+        <import type="androidx.databinding.ObservableList"/>
+        <variable name="user" type="ObservableList&lt;Object&gt;"/>
     </data>
 
     <LinearLayout
@@ -20,19 +20,19 @@
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.firstName}"
+            android:text="@{user[0]}"
             tools:text="Kim " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user[`lastName`]}"
+            android:text="@{user[1]}"
             tools:text="Guen " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf((Integer)user.age)}"
+            android:text="@{String.valueOf((Integer)user[2])}"
             tools:text="26 " />
 
 
