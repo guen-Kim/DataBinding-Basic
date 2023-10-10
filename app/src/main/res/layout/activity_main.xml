@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="user"
             type="com.example.databinding_sample.User" />
-        <variable
-            name="activity"
-            type="com.example.databinding_sample.MainActivity" />
+
     </data>
 
     <LinearLayout
@@ -20,21 +19,27 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-<!--InverseBinding-->
+        <!--InverseBinding-->
         <EditText
-            android:id="@+id/et"
+            android:id="@+id/et1"
             android:layout_width="100dp"
-            android:text="@={user.name}"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@={user.name}" />
+        <!--Binding-->
+        <TextView
+            android:id="@+id/et2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}" />
 
-<!--Binding-->
+
+        <!--Binding-->
         <TextView
             android:id="@+id/tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{user.name}"
+            android:text="@{user.firstName}"
             tools:text="Kim " />
-
 
     </LinearLayout>
 </layout>
