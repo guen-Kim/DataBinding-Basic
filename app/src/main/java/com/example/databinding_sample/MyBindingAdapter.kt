@@ -2,8 +2,8 @@ package com.example.databinding_sample
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
@@ -11,8 +11,11 @@ import androidx.databinding.InverseBindingListener
 // BindingAdapter (Setter 역할, Model의 값 view으로 가져옴)
 @BindingAdapter("android:text")
 fun setTextString(view: EditText, contet: String) {
+    Log.d("set", "Binding1")
     var old: String = view.text.toString()
-    if (old != contet) view.setText(contet)
+    if (old != contet) {
+        view.setText(contet)
+    }
 }
 
 // InverseBindingAdapter (Getter 역할, view의 값 Model으로 가져옴)
